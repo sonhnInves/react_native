@@ -12,5 +12,6 @@ export const AppColors = {
     black: '#000000',
     white: '#FFFFFF',
     red: '#FF0000',
-    primary:'#CCA421'
+    primary:'#CCA421',
+    textField:'#CCCCCC'
 };
