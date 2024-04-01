@@ -1,12 +1,12 @@
-import { ScrollView, Text, View, Dimensions, StyleSheet, TextInput, ActivityIndicator } from "react-native";
-import { AppColors, SCREENS } from "../../shared/constants";
-import { useNavigation, useTheme } from "@react-navigation/native";
-import { useEffect, useState } from "react";
-import { Button } from "../intro/widget/button";
-import { useDispatch, useSelector } from "react-redux";
+import {ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, TextInput, View} from "react-native";
+import {AppColors, SCREENS} from "../../shared/constants";
+import {useNavigation} from "@react-navigation/native";
+import {useEffect, useState} from "react";
+import {Button} from "../intro/widget/button";
+import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
-import { login } from "../../redux/reducer/auth"
-import { RootState } from "../../redux/store";
+import {login} from "../../redux/reducer/auth"
+import {RootState} from "../../redux/store";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
