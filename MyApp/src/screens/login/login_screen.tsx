@@ -1,6 +1,6 @@
-import { ScrollView, Text, View, Dimensions, StyleSheet, TextInput, ActivityIndicator } from "react-native";
+import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { AppColors, SCREENS } from "../../shared/constants";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { Button } from "../intro/widget/button";
 import { useDispatch, useSelector } from "react-redux";
@@ -75,11 +75,10 @@ const LoginScreen = () => {
                     <View style={{ marginTop: height * 0.2 }}>
                         <Button text="Login" onPress={() => {
                             if (canLogin) {
-                                loginEmail("username=admin@caskx.com&password=cxtest")
-                                console.log(true)
-
+                                loginEmail("username=dieptx.ptit@gmail.com&password=11");
+                                console.log(true);
                             }
-                        }} bordered size='large' type={canLogin ? "filled" : "outlined"} />
+                        }} bordered size='large' type={canLogin ? "filled" : "outlined"} textTransform={"capitalize"} />
                     </View>
                 </View>
             </ScrollView >

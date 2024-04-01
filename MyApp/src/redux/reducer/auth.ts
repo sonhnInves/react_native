@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import Token from '../../models/token';
+import {AppString, LocalStorage} from '../../shared/shared_preferences';
 interface Type {
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -24,10 +25,11 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = action.payload;
       state.isLoading = true;
+      LocalStorage.set(AppString.TOKEN, state.user);
+      console.log('User', state.user);
     },
   },
 });
 
 export const {login} = authSlice.actions;
-export const selectAuth = (state: {auth: any}) => state.auth;
 export default authSlice.reducer;

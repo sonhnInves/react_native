@@ -1,10 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authReducer from './reducer/auth';
-import loginReducer from './reducer/index'
+import caskListReducer from './reducer/cask_list';
 
 const store = configureStore({
   reducer: {
-    authReducer
+    authReducer,
+    caskListReducer,
   },
 });
 export default store;

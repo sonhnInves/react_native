@@ -1,9 +1,17 @@
-import axios from "axios";
-const API_URL = "http://ec2-54-196-173-168.compute-1.amazonaws.com";
+// import {AppString, LocalStorage} from '../shared/shared_preferences';
+// import Token from '../models/token';
+// con UserToken = {
+//   success: false,
+//   networkid: number,
+//   orgid: 0,
+//   refreshtoken: '',
+//   token: '',
+// };
 
-const login =(email:string)=>{
-    const res = axios.post(API_URL +":3000/api/getToken",{email});
-    return res;
+// const Authentication = async () => {
+//   var token = await LocalStorage.get(AppString.TOKEN);
 
-}
-export default login;
+//   return UserToken;
+// };
+
+// export default Authentication;
