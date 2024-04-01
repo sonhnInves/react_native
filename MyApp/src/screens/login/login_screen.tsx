@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { login } from "../../redux/reducer/auth"
 import { RootState } from "../../redux/store";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const LoginScreen = () => {
@@ -31,7 +32,7 @@ const LoginScreen = () => {
             const API_URL = "http://ec2-54-196-173-168.compute-1.amazonaws.com";
             const res = await axios.post(API_URL + ":3000/api/getToken", email)
             dispatch(login(res.data))
-            navigation.navigate({ name: SCREENS.HOME } as never)
+            navigation.navigate({ name: SCREENS.NAVIGATION_PAGE } as never)
         } catch (e) {
             console.log(e)
         }
@@ -40,6 +41,10 @@ const LoginScreen = () => {
 
     return (
         <View>
+            <View style={{ height: 20 }} />
+            <View>
+                <Icon name="close" size={24} onPress={navigation.goBack}></Icon>
+            </View>
             <View style={{ height: height * 0.1 }} />
             <ScrollView>
                 <Text style={{ textAlign: "center", color: AppColors.primary, fontSize: 32, fontWeight: "bold", }}>
