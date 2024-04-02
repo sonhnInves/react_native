@@ -32,6 +32,7 @@ const LoginScreen = () => {
             const API_URL = "http://ec2-54-196-173-168.compute-1.amazonaws.com";
             const res = await axios.post(API_URL + ":3000/api/getToken", email)
             dispatch(login(res.data))
+            console.log(res.data)
             navigation.navigate({ name: SCREENS.NAVIGATION_PAGE } as never)
         } catch (e) {
             console.log(e)
@@ -75,11 +76,10 @@ const LoginScreen = () => {
                     <View style={{ marginTop: height * 0.2 }}>
                         <Button text="Login" onPress={() => {
                             if (canLogin) {
-                                loginEmail("username=admin@caskx.com&password=cxtest")
-                                console.log(true)
-
+                                loginEmail("username=dieptx.ptit@gmail.com&password=11");
+                                console.log(true);
                             }
-                        }} bordered size='large' type={canLogin ? "filled" : "outlined"} />
+                        }} bordered size='large' type={canLogin ? "filled" : "outlined"} textTransform={"capitalize"} />
                     </View>
                 </View>
             </ScrollView >

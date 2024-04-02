@@ -1,5 +1,5 @@
-import {Dimensions, Text, TouchableOpacity, View} from "react-native";
-import {AppColors} from "../../../shared/constants";
+import { Dimensions, Text, TouchableOpacity, View } from "react-native";
+import { AppColors } from "../../../shared/constants";
 
 const width = Dimensions.get('window').width;
 interface ButtonProps {

@@ -25,7 +25,7 @@ const IntroScreen = () => {
             <Button text="Login" onPress={onPress} bordered size='small' type='outlined' textTransform={"uppercase"}/>
         </View>
         <View style={{alignItems: 'center', marginTop: 20}}>
-            <Text style={{color: "#ffcc33", fontSize: 18}}>,
+            <Text style={{color: "#ffcc33", fontSize: 18}}>
                 New User?
             </Text>
         </View>
