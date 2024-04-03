@@ -6,7 +6,8 @@ export const SCREENS = {
   DETAIL: 'Detail',
   INTRO: 'Intro',
   LOGIN: 'Login',
-  NAVIGATION_PAGE: 'navigation_page',
+  NAVIGATION_PAGE: 'NavigationPage',
+  PORTFOLIO: 'Portfolio',
 };
 
 export const AppColors = {
