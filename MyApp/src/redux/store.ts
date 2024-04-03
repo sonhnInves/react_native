@@ -1,13 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authReducer from './reducer/auth';
 import caskListReducer from './reducer/cask_reducer.ts';
-import distilleriesNewsReduces from './reducer/distilleries_news_reducer.ts'
+import distilleriesNewsReduces from './reducer/distilleries_news_reducer.ts';
+import notificationReducer from './reducer/notification_reducer.ts';
 
 const store = configureStore({
   reducer: {
     authReducer,
     caskListReducer,
-    distilleriesNewsReduces
+    distilleriesNewsReduces,
+    notificationReducer,
   },
 });
 export default store;
