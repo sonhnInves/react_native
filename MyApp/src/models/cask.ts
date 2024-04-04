@@ -1,4 +1,4 @@
-interface Cask {
+interface CaskX {
   success: boolean;
   casks: Cask[];
   totals: Total[];
@@ -6,10 +6,6 @@ interface Cask {
   timeline: Timeline;
   distilleries: Distillery[];
   categories: Category[];
-}
-
-interface hello {
-  test: Cask[];
 }
 
 interface Category {
@@ -63,7 +59,7 @@ interface Total {
   totalinvestments: number;
   firstinvestment: string;
 }
-interface Cask {
+export interface Cask {
   id: number;
   caskid: number;
   owner_clientid: number;
@@ -123,4 +119,4 @@ interface Cask {
   current_price_format: string;
   name: string;
 }
-export default Cask;
+export default CaskX;

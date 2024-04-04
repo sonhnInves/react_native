@@ -17,7 +17,8 @@ import NavigationPage from './src/screens/navigator/index.tsx';
 import { AppString, LocalStorage } from './src/shared/shared_preferences/index.ts';
 import { useEffect, useState } from "react";
 import { View } from 'react-native';
-
+import { StackNavigation } from './src/screens/navigator/stack_navigation.tsx';
+import "react-native-devsettings";
 const Stack = createStackNavigator();
 
 function App(): React.JSX.Element {
@@ -39,10 +40,10 @@ function App(): React.JSX.Element {
     return (
         <Provider store={store}>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName={isToken ? SCREENS.NAVIGATION_PAGE : SCREENS.INTRO} screenOptions={{ headerShown: false }}>
+                <Stack.Navigator initialRouteName={isToken ? SCREENS.STACK_NAVIGSTION : SCREENS.INTRO} screenOptions={{ headerShown: false }}>
                     <Stack.Screen name={SCREENS.INTRO} component={IntroScreen} />
                     <Stack.Screen name={SCREENS.LOGIN} component={LoginScreen} />
-                    <Stack.Screen name={SCREENS.NAVIGATION_PAGE} component={NavigationPage} />
+                    <Stack.Screen name={SCREENS.STACK_NAVIGSTION} component={StackNavigation} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

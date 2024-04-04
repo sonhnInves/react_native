@@ -1,5 +1,5 @@
 export const SCREENS = {
-  HOME: 'Home',
+  HOME: 'Home_',
   SEARCH: 'Search',
   NOTIFICATION: 'Notification',
   PROFILE: 'Profile',
@@ -7,7 +7,16 @@ export const SCREENS = {
   INTRO: 'Intro',
   LOGIN: 'Login',
   NAVIGATION_PAGE: 'NavigationPage',
-  PORTFOLIO: 'Portfolio',
+  PORTFOLIO: 'Portfolio_',
+  STACK_PORTFOLIO: 'Portfolio',
+  STACK_NAVIGSTION: 'StackNavigation',
+  PORTFOLIO_DETAIL: 'PortfolioDetail',
+  CASK_DETAIL: 'CaskDetail',
+  REQUEST_TO_SELL: 'RequestToSell',
+  RESOURCES: 'Resources_',
+  ARTICLE: 'Article',
+  STACK_HOME: 'Home',
+  STACK_RESOURCES: 'Resources',
 };
 
 export const AppColors = {
@@ -16,4 +25,5 @@ export const AppColors = {
   red: '#FF0000',
   primary: '#CCA421',
   textField: '#CCCCCC',
+  transparent: '#82bc0000',
 };

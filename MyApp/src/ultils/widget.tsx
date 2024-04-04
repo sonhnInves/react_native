@@ -3,21 +3,30 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ImageBackground } from "react-native";
 import { AppColors } from "../shared/constants";
 export interface HeaderType {
+    title?: string,
     accountValue?: string,
     totalInvestments?: number,
+    totalInvestmentsTitle?: string,
     totalGallons?: number,
+    totalGallonsTitle?: string,
     totalBottles?: number,
+    totalBottlesTitle?: string,
     firstInvestment?: string,
+    firstInvestmentTitle?: string,
     titleButton?: string,
     backgroundColor?: string,
     backgroundColorBox?: string,
+    backgroundImage: string,
     onPress?: () => void
 }
+const ImageList = () => {
+
+}
 export const renderHeader = (object: HeaderType) => {
-    return (<ImageBackground source={require("../assets/home_background.png")}
+    return (<ImageBackground source={object.backgroundImage}
         style={styles({}).image}>
         <View style={{ backgroundColor: object.backgroundColor ?? AppColors.black, }}>
-            <Text style={styles({ color: AppColors.primary }).textHeader}>Account Value</Text>
+            <Text style={styles({ color: AppColors.primary, fontSize: 24 }).textHeader}>{object.title ?? "Account Value"}</Text>
             <Text style={styles({ fontSize: 26 }).textHeader}>
                 ${object.accountValue}
             </Text>
@@ -27,7 +36,7 @@ export const renderHeader = (object: HeaderType) => {
                         {object.totalInvestments}
                     </Text>
                     <Text style={styles({ fontSize: 12 }).textHeader}>
-                        Total investments
+                        {object.totalInvestmentsTitle ?? "Total investments"}
                     </Text>
                 </View>
                 <View style={styles({}).space} />
@@ -36,7 +45,7 @@ export const renderHeader = (object: HeaderType) => {
                         {object.totalGallons}
                     </Text>
                     <Text style={styles({ fontSize: 12 }).textHeader}>
-                        Total Gallons
+                        {object.totalGallonsTitle ?? "Total Gallons"}
                     </Text>
                 </View>
                 <View style={styles({}).space} />
@@ -45,7 +54,7 @@ export const renderHeader = (object: HeaderType) => {
                         {object.totalBottles}
                     </Text>
                     <Text style={styles({ fontSize: 12 }).textHeader}>
-                        Total Bottles
+                        {object.totalBottlesTitle ?? "Total Bottles"}
                     </Text>
                 </View>
             </View>
@@ -58,13 +67,13 @@ export const renderHeader = (object: HeaderType) => {
             }}>
                 <View>
                     <Text style={styles({ color: AppColors.primary, fontSize: 20 }).textHeader}>
-                        First Investment
+                        {object.firstInvestmentTitle ?? "First Investment"}
                     </Text>
                     <Text style={styles({ fontSize: 20 }).textHeader}>
                         {object.firstInvestment}
                     </Text>
                 </View>
-                <TouchableOpacity style={{ borderColor: AppColors.white, borderWidth: 1, borderRadius: 8, padding: 8 }} onPress={() => { object.onPress }}>
+                <TouchableOpacity style={{ borderColor: AppColors.white, borderWidth: 1, borderRadius: 8, padding: 8 }} onPress={object.onPress}>
                     <Text style={{ color: AppColors.white }}>
                         {object.titleButton}
                     </Text>
