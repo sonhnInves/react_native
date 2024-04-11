@@ -1,8 +1,8 @@
-import Cask from '../../models/cask.ts';
+import CaskX from '../../models/cask.ts';
 import {createSlice} from '@reduxjs/toolkit';
 interface initial {
   isLoading: boolean;
-  caskList: Partial<Cask>;
+  caskList: Partial<CaskX>;
 }
 
 const caskListSlice = createSlice({

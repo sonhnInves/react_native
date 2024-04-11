@@ -26,7 +26,6 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.isLoading = true;
       LocalStorage.set(AppString.TOKEN, state.user);
-      console.log('User', state.user);
     },
   },
 });
