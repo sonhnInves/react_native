@@ -4,11 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { Button } from "../intro/widget/button";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { login } from "../../redux/reducer/auth"
 import { RootState } from "../../redux/store";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { KeyboardAvoidingView } from "react-native";
+import { Api } from "../../services";
+import { AppString, LocalStorage } from "../../shared/shared_preferences";
 
 
 const LoginScreen = () => {
@@ -17,6 +17,7 @@ const LoginScreen = () => {
     const [emailController, setUseEmail] = useState('');
     const [passwordController, setUsePassword] = useState('');
     const [canLogin, setLogin] = useState(false);
+    const { isLoading } = useSelector((state: RootState) => state.authReducer);
 
 
     useEffect(() => {
@@ -26,21 +27,13 @@ const LoginScreen = () => {
             setLogin(false)
         }
     })
-    const user = useSelector((state: RootState) => state.authReducer)
+    // const user = useSelector((state: RootState) => state.authReducer)
     const dispatch = useDispatch();
-    const loginEmail = async (email: string) => {
-        try {
-            const API_URL = "http://ec2-54-196-173-168.compute-1.amazonaws.com";
-            const res = await axios.post(API_URL + ":3000/api/getToken", email)
-            dispatch(login(res.data))
-            console.log(res.data)
-            navigation.navigate({ name: SCREENS.STACK_NAVIGSTION } as never)
-        } catch (e) {
-            console.log(e)
+    useEffect(() => {
+        if (isLoading) {
+            navigation.navigate({ name: SCREENS.STACK_NAVIGSTION } as never);
         }
-
-    }
-
+    }, [navigation, isLoading])
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={"height"}>
             <View>
@@ -57,10 +50,10 @@ const LoginScreen = () => {
                     <Text style={{ textAlign: "center", color: AppColors.black, fontSize: 30, fontWeight: "600", }}>
                         Sign In
                     </Text>
-                    <View style={[stylesIndicator.container, stylesIndicator.horizontal]}>
+                    {/* <View style={[stylesIndicator.container, stylesIndicator.horizontal]}>
                         {user.isLoading ? <ActivityIndicator size={'large'} /> : <View />}
 
-                    </View>
+                    </View> */}
                     <TextInput
                         style={styles.input}
                         onChangeText={value => setUseEmail(value)}
@@ -78,7 +71,10 @@ const LoginScreen = () => {
                         <View style={{ marginTop: height * 0.2 }}>
                             <Button text="Login" onPress={() => {
                                 if (canLogin) {
-                                    loginEmail("username=dieptx.ptit@gmail.com&password=11");
+                                    Api.loginEmail('username=dieptx.ptit@gmail.com&password=11', dispatch);
+                                    // if (user.token.success) {
+                                    //     navigation.navigate({ name: SCREENS.STACK_NAVIGSTION } as never);
+                                    // }
                                     console.log(true);
                                 }
                             }} bordered size='large' type={canLogin ? "filled" : "outlined"} textTransform={"capitalize"} />

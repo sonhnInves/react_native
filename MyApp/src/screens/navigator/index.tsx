@@ -3,7 +3,7 @@ import { AppColors, SCREENS } from "../../shared/constants";
 import HomeScreen from "../home/home_screen";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text } from 'react-native';
+import { Platform, StyleSheet, Text } from 'react-native';
 import { useState } from 'react';
 import { PortfolioStack } from '../portfolio/stack_navigation/stack_navigation_portfolio';
 import { ProfileScreen } from '../profile/profile_screen';
@@ -51,7 +51,7 @@ const NavigationPage = () => {
             },
             tabBarStyle: {
                 backgroundColor: "#202020",
-                height: 60
+                height: Platform.OS === 'ios' ? 100 : 60
             }
         })} screenListeners={{
             state: (e) => {

@@ -5,8 +5,6 @@ import ArticleScreen from "../../article/article_screen";
 import { useRoute } from "@react-navigation/native";
 const Stack = createStackNavigator();
 const ResourcesStack = () => {
-    const route = useRoute();
-    console.log('route', route)
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={SCREENS.RESOURCES}>
             <Stack.Screen name={SCREENS.RESOURCES} component={ResourcesScreen} />

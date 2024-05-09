@@ -1,5 +1,5 @@
 
-import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { renderHeader } from "../../ultils/widget";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -124,6 +124,8 @@ const PortfolioScreen = () => {
     );
     return (<ScrollView>
         <View style={{ backgroundColor: AppColors.black, paddingHorizontal: 16 }}>
+            {Platform.OS === 'ios' && <View style={{ height: 59 }}>
+                <StatusBar backgroundColor={AppColors.red} /></View>}
             <Text style={{ color: AppColors.white, fontSize: 20 }}>
                 Portfolio
             </Text>

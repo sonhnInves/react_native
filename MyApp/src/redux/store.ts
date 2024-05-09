@@ -5,6 +5,7 @@ import distilleriesNewsReduces from './reducer/distilleries_news_reducer.ts';
 import notificationReducer from './reducer/notification_reducer.ts';
 import caskDetailReducer from './reducer/cask_detail_reducer.ts';
 import myProfileReducer from './reducer/my_profile_reducer.ts';
+import articleReducer from './reducer/article_reducer.ts';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     notificationReducer,
     caskDetailReducer,
     myProfileReducer,
+    articleReducer,
   },
 });
 export default store;
