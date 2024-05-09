@@ -15,7 +15,6 @@ const myProfileSlice = createSlice({
   reducers: {
     myProfile: (state, action) => {
       (state.isLoading = false), (state.myProfile = action.payload);
-      console.log('----------------', state.myProfile);
     },
   },
 });

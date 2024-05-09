@@ -9,32 +9,37 @@ callApi.defaults.baseURL =
 
 callApi.interceptors.request.use(async config => {
   const userToken = await LocalStorage.get(AppString.TOKEN);
-  if (userToken['token']) {
+  if (userToken !== null && userToken['token']) {
     config.headers.Authorization = `Bearer ${userToken['token']}`;
   }
+  config.headers['Content-Type'] =
+    'application/x-www-form-urlencoded; charset=UTF-8';
   return config;
 });
 
 callApi.interceptors.response.use(
-  res => res,
-  (error: AxiosError) => {
-    const {data, status, config} = error.response!;
-    switch (status) {
-      case 400:
-        console.error(data);
-        break;
+  res => {
+    return res;
+  },
+  function (error) {
+    if (error as AxiosError) {
+      switch (error.status) {
+        case 400:
+          console.error(error.message);
+          break;
 
-      case 401:
-        console.error('unauthorised');
-        break;
+        case 401:
+          console.error('unauthorised');
+          break;
 
-      case 404:
-        console.error('/not-found');
-        break;
+        case 404:
+          console.error('/not-found');
+          break;
 
-      case 500:
-        console.error('/server-error');
-        break;
+        case 500:
+          console.error('/server-error');
+          break;
+      }
     }
     return Promise.reject(error);
   },

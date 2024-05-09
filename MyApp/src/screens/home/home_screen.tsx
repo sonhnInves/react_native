@@ -67,7 +67,7 @@ const HomeScreen = () => {
                 <ScrollView style={homeStyle().container}
                     refreshControl={<RefreshControl refreshing={refreshing}
                         onRefresh={onRefresh} />}>
-                    <StatusBar backgroundColor={AppColors.black} barStyle="light-content"></StatusBar>
+                    <StatusBar backgroundColor={AppColors.black} barStyle="dark-content"></StatusBar>
                     <View style={{ flexDirection: "row", backgroundColor: AppColors.black, paddingHorizontal: 16, alignItems: "center", paddingVertical: 4 }}>
                         <Image style={homeStyle().avatar}
                             source={{ uri: "https://s3.amazonaws.com/caskx-base/220/219.jpg?c=1695627943" }} />
@@ -102,7 +102,10 @@ const HomeScreen = () => {
                     </View>
                     <TouchableOpacity onPress={() => {
                         nav.navigate(SCREENS.STACK_RESOURCES, {
-                            screen: SCREENS.ARTICLE
+                            screen: SCREENS.ARTICLE,
+                            params: {
+                                id: distilleriesNews.distilleriesNews.data?.[1].id
+                            }
                         });
                     }} activeOpacity={0.9}>
                         <View style={{ flexDirection: "row", margin: 16 }}>
